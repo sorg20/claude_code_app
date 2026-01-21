@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sk_first_app</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>sk_first_app</h1>
+        </header>
+
+        <div class="main-layout">
+            <!-- Kanban Board -->
+            <section class="kanban-section">
+                <div class="kanban-board">
+                    <div class="kanban-column" data-status="todo">
+                        <div class="column-header">
+                            <h2>Todo</h2>
+                            <button class="add-card-btn" data-column="todo">+</button>
+                        </div>
+                        <div class="cards-container" id="todo-cards"></div>
+                    </div>
+
+                    <div class="kanban-column" data-status="in-progress">
+                        <div class="column-header">
+                            <h2>In Progress</h2>
+                            <button class="add-card-btn" data-column="in-progress">+</button>
+                        </div>
+                        <div class="cards-container" id="in-progress-cards"></div>
+                    </div>
+
+                    <div class="kanban-column" data-status="complete">
+                        <div class="column-header">
+                            <h2>Complete</h2>
+                            <button class="add-card-btn" data-column="complete">+</button>
+                        </div>
+                        <div class="cards-container" id="complete-cards"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Todo List -->
+                <section class="todo-section">
+                    <div class="section-header">
+                        <h2>Quick Todos</h2>
+                    </div>
+                    <div class="todo-input-wrapper">
+                        <input type="text" id="todo-input" placeholder="Add a quick todo...">
+                        <button id="add-todo-btn">Add</button>
+                    </div>
+                    <ul id="todo-list"></ul>
+                </section>
+
+                <!-- Notes -->
+                <section class="notes-section">
+                    <div class="section-header">
+                        <h2>Notes</h2>
+                    </div>
+                    <textarea id="notes-area" placeholder="Your notes here..."></textarea>
+                </section>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Modal for adding/editing cards -->
+    <div id="card-modal" class="modal">
+        <div class="modal-content">
+            <h3 id="modal-title">New Task</h3>
+            <input type="text" id="card-title-input" placeholder="Task title...">
+            <textarea id="card-description-input" placeholder="Description (optional)..."></textarea>
+            <div class="priority-selector">
+                <label>Priority:</label>
+                <div class="priority-buttons">
+                    <button type="button" class="priority-btn" data-priority="high">High</button>
+                    <button type="button" class="priority-btn" data-priority="medium">Medium</button>
+                    <button type="button" class="priority-btn" data-priority="low">Low</button>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="save-card-btn">Save</button>
+                <button id="cancel-card-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
